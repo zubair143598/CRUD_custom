@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Employees from "../components/Employees";
-
+import Link from "next/link";
 
 
 const Homee = () => {
@@ -61,10 +61,10 @@ const Homee = () => {
             : "no data avaliable"}
         </tbody>
       </table>
-      <a href="/Create">
+      
 
-      <button  className="bg-blue-500 border rounded m-1 py-1 px-3 w-[120px]">add</button>
-      </a>
+      
+      <Link className="bg-blue-500 border rounded m-1 py-1 px-3 w-[10rem]" href="/Create">add</Link>
     </div>
   );
 };
