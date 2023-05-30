@@ -23,7 +23,7 @@ const Create = () => {
   }
 
   return (
-    <div className="h-screen px-[20rem] text-center flex flex-col justify-center">
+    <div className="h-screen sm:px-2  text-center flex flex-col justify-center">
       <form action="">
         <input
           id="name"

@@ -21,7 +21,7 @@ const Homee = () => {
  
 
   return (
-    <div className=" h-screen px-[20rem] text-center flex flex-col justify-center   ">
+    <div className=" h-screen sm:px-1 px-[20rem] text-center flex flex-col justify-center   ">
       <div className="my-4 text-end">
       <Link className="bg-blue-500 border rounded m-1 py-3 px-[3rem] " href="/Create">Add User</Link>
       </div>
