@@ -6,6 +6,14 @@ import Link from "next/link";
 const Homee = () => {
   const [employeeData, setEmployeeData] = useState(Employees);
 
+  const handleEdit=(id, name, age )=>{
+    localStorage.setItem("Name", name)
+    localStorage.setItem("Age", age)
+    localStorage.setItem("Id", id)
+
+
+  }
+
   const handleDelete = (id) => {
     const upDatedData = employeeData.filter((employee) => employee.id !== id);
     setEmployeeData(upDatedData);
@@ -13,13 +21,18 @@ const Homee = () => {
  
 
   return (
-    <div className="h-screen px-[20rem] text-center flex flex-col justify-center   ">
-      <table className="  border-collapse border border-slate-400">
+    <div className=" h-screen px-[20rem] text-center flex flex-col justify-center   ">
+      <div className="my-4 text-end">
+      <Link className="bg-blue-500 border rounded m-1 py-3 px-[3rem] " href="/Create">Add User</Link>
+      </div>
+
+      <table className="  border-collapse border  border-slate-400">
         <thead>
-          <tr>
-            <th className=" border-collapse border border-slate-400">Name</th>
-            <th className=" border-collapse border border-slate-400">Age</th>
-            <th className=" border-collapse border border-slate-400">Action</th>
+          <tr className=" text-left   ">
+            
+            <th className=" pl-3 border-collapse border border-slate-400">Name</th>
+            <th className=" pl-3 border-collapse border border-slate-400">Age</th>
+            <th className="pl-3 border-collapse border border-slate-400">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -27,24 +40,24 @@ const Homee = () => {
             ? employeeData.map((data) => {
                 return (
                   <>
-                    <tr key={data.id} >
-                      <td className=" border-collapse border border-slate-400">
-                        {data.name}
+                    <tr className="text-left" key={data.id} >
+                      <td className="pl-3 border-collapse border border-slate-400">
+                        {data.Name}
                       </td>
-                      <td className=" border-collapse border border-slate-400">
-                        {data.age}
+                      <td className="pl-3 border-collapse border border-slate-400">
+                        {data.Age}
                       </td>
-                      <td className=" border-collapse border border-slate-400">
-                        <a href="/edit">
+                      <td className="pl-3 border-collapse border border-slate-400">
 
                       <button
-                          onClick={() => alert(data.id)}
+                          onClick={() => handleEdit(data.id, data.Name, data.Age)}
                           
                           className="bg-blue-500 border rounded m-1 py-1 px-3"
                           >
+                        <Link href="/Edit">
                           Edit
+                          </Link>
                         </button>
-                          </a>
                         &nbsp;
                         <button
                           onClick={() => handleDelete(data.id)}
@@ -64,7 +77,6 @@ const Homee = () => {
       
 
       
-      <Link className="bg-blue-500 border rounded m-1 py-1 px-3 w-[10rem]" href="/Create">add</Link>
     </div>
   );
 };

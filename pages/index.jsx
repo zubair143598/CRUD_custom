@@ -9,7 +9,7 @@ export default function Home() {
         <title>cread-redux</title>
       </Head>
 
-      <main>
+      <main className="bg-gradient-to-r from-black to-red-700 text-white">
         <Homee/>
         
       </main>
